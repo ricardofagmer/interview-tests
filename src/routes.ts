@@ -1,15 +1,14 @@
-import express from "express";
-import UserRoutes from './entity/user/user.routes'
+import express, { response } from "express";
+import cityRoutes from './models/city/city.routes'
 
 class Router {
+      public router;
 
-    public router;
+      constructor() {
+            this.router = express.Router();
+            this.router.get('/', (req, res) => res.send('It Works!'))            
+            this.router.use('/city', cityRoutes);
 
-    constructor(){
-        this.router = express.Router();
-        this.router.get('/', (req, res) => res.send('It works!'));
-        this.router.use('/user', UserRoutes)
-
-    }
+      }
 }
-export default new Router().router;
+export default new Router().router

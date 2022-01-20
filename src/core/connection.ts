@@ -1,6 +1,7 @@
 import "reflect-metadata";
-import { createConnection}  from "typeorm";
-import { User } from "../entity/user/User";
+import { createConnection } from "typeorm";
+import City from "../models/city/city.entity";
+import { State } from "../models/state/state.entity";
 
 export abstract class TypeOrmConnection {
 
@@ -11,9 +12,10 @@ export abstract class TypeOrmConnection {
             port: 3306,
             username: "root",
             password: "lida@09",
-            database: "challange",
+            database: "typeorm",
             entities: [
-                User
+                State,
+                City,
             ],
             synchronize: false,
             logging: true
